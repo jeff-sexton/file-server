@@ -34,7 +34,7 @@ server.on('connection', (client) => {
 
   // Handle client communication
   client.on('data', (data) => {
-    data = data.replace(/(\r\n|\n|\r)/gm,""); //need to remove line brake at the end of the received data
+    data = data.trim(); //need to remove line brake at the end of the received data
     if (filesAvailable.includes(data.toString())) {
       console.log('client wants: ', data);
 
